@@ -1,8 +1,8 @@
 """可視化ヘルパー関数"""
 
-import numpy as np
-import matplotlib.pyplot as plt
 import matplotlib.patches as patches
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 def plot_2d_poses(poses, ax=None, color="blue", label=None, arrow_length=0.3):
@@ -39,8 +39,9 @@ def plot_2d_landmarks(landmarks, ax=None, color="red", marker="*", label=None):
     landmarks = np.asarray(landmarks)
     if ax is None:
         _, ax = plt.subplots(1, 1, figsize=(8, 8))
-    ax.scatter(landmarks[:, 0], landmarks[:, 1], c=color, marker=marker,
-               s=100, label=label, zorder=5)
+    ax.scatter(
+        landmarks[:, 0], landmarks[:, 1], c=color, marker=marker, s=100, label=label, zorder=5
+    )
     if label:
         ax.legend()
     return ax
@@ -62,16 +63,18 @@ def plot_factor_graph(variables, factors, ax=None):
 
     # 変数ノード（丸）
     for name, (x, y) in variables.items():
-        circle = patches.Circle((x, y), 0.2, fill=True, facecolor="lightblue",
-                                edgecolor="black", linewidth=2, zorder=3)
+        circle = patches.Circle(
+            (x, y), 0.2, fill=True, facecolor="lightblue", edgecolor="black", linewidth=2, zorder=3
+        )
         ax.add_patch(circle)
         ax.text(x, y, name, ha="center", va="center", fontsize=10, fontweight="bold", zorder=4)
 
     # ファクターノード（四角）とエッジ
     for f in factors:
         fx, fy = f["pos"]
-        rect = patches.Rectangle((fx - 0.12, fy - 0.12), 0.24, 0.24,
-                                 fill=True, facecolor="black", zorder=3)
+        rect = patches.Rectangle(
+            (fx - 0.12, fy - 0.12), 0.24, 0.24, fill=True, facecolor="black", zorder=3
+        )
         ax.add_patch(rect)
 
         for var_name in f["connected"]:
@@ -94,8 +97,16 @@ def plot_covariance_ellipse(mean, cov, ax=None, n_std=2.0, color="blue", alpha=0
     angle = np.degrees(np.arctan2(eigenvectors[1, 0], eigenvectors[0, 0]))
     width, height = 2 * n_std * np.sqrt(eigenvalues)
 
-    ellipse = patches.Ellipse(mean[:2], width, height, angle=angle,
-                               fill=True, facecolor=color, alpha=alpha,
-                               edgecolor=color, linewidth=2)
+    ellipse = patches.Ellipse(
+        mean[:2],
+        width,
+        height,
+        angle=angle,
+        fill=True,
+        facecolor=color,
+        alpha=alpha,
+        edgecolor=color,
+        linewidth=2,
+    )
     ax.add_patch(ellipse)
     return ax

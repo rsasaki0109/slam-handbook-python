@@ -8,7 +8,7 @@ class FactorGraph:
 
     def __init__(self):
         self.variables = {}  # {name: initial_value}
-        self.factors = []    # list of Factor
+        self.factors = []  # list of Factor
 
     def add_variable(self, name, initial_value):
         self.variables[name] = np.asarray(initial_value, dtype=float)

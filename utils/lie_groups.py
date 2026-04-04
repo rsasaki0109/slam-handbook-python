@@ -2,10 +2,10 @@
 
 import numpy as np
 
-
 # =============================================================
 # SO(2)
 # =============================================================
+
 
 def so2_exp(theta):
     """スカラー → 2×2回転行列"""
@@ -22,11 +22,10 @@ def so2_log(R):
 # SO(3)
 # =============================================================
 
+
 def so3_wedge(v):
     """R^3 → 3×3歪対称行列"""
-    return np.array([[0, -v[2], v[1]],
-                     [v[2], 0, -v[0]],
-                     [-v[1], v[0], 0]])
+    return np.array([[0, -v[2], v[1]], [v[2], 0, -v[0]], [-v[1], v[0], 0]])
 
 
 def so3_vee(W):
@@ -58,6 +57,7 @@ def so3_log(R):
 # SE(2)
 # =============================================================
 
+
 def se2_from_xyt(x, y, theta):
     """(x, y, θ) → 3×3同次変換行列"""
     c, s = np.cos(theta), np.sin(theta)
@@ -80,8 +80,7 @@ def se2_exp(xi):
     if abs(theta) < 1e-10:
         return np.array([[1, 0, rho[0]], [0, 1, rho[1]], [0, 0, 1]])
     c, s = np.cos(theta), np.sin(theta)
-    V = np.array([[s / theta, -(1 - c) / theta],
-                   [(1 - c) / theta, s / theta]])
+    V = np.array([[s / theta, -(1 - c) / theta], [(1 - c) / theta, s / theta]])
     t = V @ rho
     T = np.eye(3)
     T[:2, :2] = np.array([[c, -s], [s, c]])
@@ -96,8 +95,7 @@ def se2_log(T):
     if abs(theta) < 1e-10:
         return np.array([t[0], t[1], theta])
     c, s = np.cos(theta), np.sin(theta)
-    V = np.array([[s / theta, -(1 - c) / theta],
-                   [(1 - c) / theta, s / theta]])
+    V = np.array([[s / theta, -(1 - c) / theta], [(1 - c) / theta, s / theta]])
     rho = np.linalg.solve(V, t)
     return np.array([rho[0], rho[1], theta])
 
@@ -105,6 +103,7 @@ def se2_log(T):
 # =============================================================
 # SE(3)
 # =============================================================
+
 
 def se3_from_Rt(R, t):
     """回転行列と並進ベクトルから4×4同次変換行列"""
@@ -143,18 +142,21 @@ def se3_vee(Xi):
 def se3_exp(xi):
     """R^6 → SE(3)"""
     from scipy.linalg import expm
+
     return expm(se3_wedge(xi))
 
 
 def se3_log(T):
     """SE(3) → R^6"""
     from scipy.linalg import logm
+
     return se3_vee(logm(T))
 
 
 # =============================================================
 # ⊕ / ⊖ 演算子
 # =============================================================
+
 
 def se2_oplus(T, xi):
     """T ⊕ ξ = T · Exp(ξ)"""
@@ -179,6 +181,7 @@ def se3_ominus(T1, T2):
 # =============================================================
 # ヘルパー
 # =============================================================
+
 
 def normalize_angle(a):
     """角度を [-π, π] に正規化"""

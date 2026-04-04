@@ -10,9 +10,7 @@ def skew_2d(v):
 
 def skew_3d(v):
     """R^3 → 3×3歪対称行列"""
-    return np.array([[0, -v[2], v[1]],
-                     [v[2], 0, -v[0]],
-                     [-v[1], v[0], 0]])
+    return np.array([[0, -v[2], v[1]], [v[2], 0, -v[0]], [-v[1], v[0], 0]])
 
 
 def rotation_matrix_2d(theta):

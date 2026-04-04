@@ -8,6 +8,7 @@ version = "0.1.0"
 description = "SLAM Handbookの内容をPythonで学ぶためのハンズオン教材"
 readme = "README.md"
 requires-python = ">=3.10"
+license = {text = "MIT"}
 dependencies = [
     "numpy>=1.24",
     "scipy>=1.10",
@@ -21,5 +22,26 @@ dependencies = [
     "networkx>=3.1",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.4",
+    "pytest>=8.0",
+]
+
 [tool.setuptools.packages.find]
 include = ["utils*"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["utils"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-p no:launch_testing -p no:launch_ros -p no:ament_flake8 -p no:ament_pep257 -p no:ament_lint -p no:ament_copyright -p no:ament_xmllint"
