@@ -5,6 +5,7 @@
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rsasaki0109/slam-handbook-python/)
 [![CI](https://github.com/rsasaki0109/slam-handbook-python/actions/workflows/ci.yml/badge.svg)](https://github.com/rsasaki0109/slam-handbook-python/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Jupyter Book](https://img.shields.io/badge/Jupyter%20Book-live-orange)](https://rsasaki0109.github.io/slam-handbook-python/)
 
 Hands-on Python + Jupyter Notebook implementations for the [SLAM Handbook](https://github.com/SLAM-Handbook-contributors/slam-handbook-public-release) (Cambridge University Press, 2026).
 

@@ -26,6 +26,12 @@ env/
 .DS_Store
 Thumbs.db
 
+# Jupyter Book build
+_build/
+
+# Internal docs
+docs/promotion_drafts.md
+
 # Data (large files)
 data/*.pcd
 data/*.ply

@@ -1,0 +1,34 @@
+format: jb-book
+root: README
+
+parts:
+  - caption: "Part I: Foundations of SLAM"
+    chapters:
+      - file: part1_foundations/ch01_factor_graphs/01_factor_graph_basics
+      - file: part1_foundations/ch01_factor_graphs/02_nonlinear_slam
+      - file: part1_foundations/ch01_factor_graphs/03_sparsity_and_elimination
+      - file: part1_foundations/ch02_state_representations/01_rotations_and_poses
+      - file: part1_foundations/ch02_state_representations/02_lie_group_optimization
+      - file: part1_foundations/ch02_state_representations/03_continuous_trajectories
+      - file: part1_foundations/ch03_outlier_robustness/01_ransac_and_robust_losses
+      - file: part1_foundations/ch04_differentiable_optimization/01_differentiable_least_squares
+      - file: part1_foundations/ch05_dense_maps/01_occupancy_and_distance_fields
+      - file: part1_foundations/ch06_certifiable_solvers/01_sdp_relaxation_and_sesync
+
+  - caption: "Part II: SLAM in Practice"
+    chapters:
+      - file: part2_practice/ch07_visual_slam/01_camera_and_epipolar
+      - file: part2_practice/ch08_lidar_slam/01_icp_and_scan_matching
+      - file: part2_practice/ch09_radar_slam/01_radar_odometry
+      - file: part2_practice/ch10_event_slam/01_event_camera_basics
+      - file: part2_practice/ch11_inertial_odometry/01_imu_preintegration
+      - file: part2_practice/ch12_leg_odometry/01_legged_robot_kinematics
+
+  - caption: "Part III: From SLAM to Spatial AI"
+    chapters:
+      - file: part3_spatial_ai/ch13_deep_learning_slam/01_learned_features_and_depth
+      - file: part3_spatial_ai/ch14_differentiable_rendering/01_nerf_and_gaussian_splatting
+      - file: part3_spatial_ai/ch15_dynamic_slam/01_dynamic_object_handling
+      - file: part3_spatial_ai/ch16_semantic_slam/01_metric_semantic_slam
+      - file: part3_spatial_ai/ch17_open_world/01_foundation_models_for_slam
+      - file: part3_spatial_ai/ch18_computational_structure/01_spatial_ai_system
